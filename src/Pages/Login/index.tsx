@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -17,7 +17,7 @@ function Copyright(props: any) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://tommdaniel.github.io/ProjetoRocketseat/">
+      <Link color="inherit" href="https://tommdaniel.github.io/ProjetoRocketseat">
         TommDaniel
       </Link>{' '}
       {new Date().getFullYear()}
@@ -26,14 +26,35 @@ function Copyright(props: any) {
   );
 }
 
+const validUser = 'Concept';
+const validPassword = '1234';
+
 export default function SignIn() {
+  const [userError, setUserError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    const user = data.get('user') as string;
+    const password = data.get('password') as string;
+
+    if (user !== validUser) {
+      setUserError('Invalid User');
+    } else {
+      setUserError('');
+    }
+
+    if (password !== validPassword) {
+      setPasswordError('Invalid Password');
+    } else {
+      setPasswordError('');
+    }
+
+    if (user === validUser && password === validPassword) {
+      alert('Login bem-sucedido');
+      // Redirecionar ou exibir conteúdo protegido
+    }
   };
 
   return (
@@ -59,11 +80,13 @@ export default function SignIn() {
               margin="normal"
               required
               fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
+              id="user"
+              label="User Name"
+              name="user"
+              autoComplete="user"
               autoFocus
+              error={!!userError}
+              helperText={userError}
             />
             <TextField
               margin="normal"
@@ -74,6 +97,8 @@ export default function SignIn() {
               type="password"
               id="password"
               autoComplete="current-password"
+              error={!!passwordError}
+              helperText={passwordError}
             />
             <Button
               type="submit"
