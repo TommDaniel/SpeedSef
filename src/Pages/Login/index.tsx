@@ -1,30 +1,17 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Copyright from '../../Components/Copyright/index'
 
 const theme = createTheme();
-
-function Copyright(props: any) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://tommdaniel.github.io/ProjetoRocketseat">
-        TommDaniel
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 const validUser = 'Concept';
 const validPassword = '1234';
@@ -32,13 +19,14 @@ const validPassword = '1234';
 export default function SignIn() {
   const [userError, setUserError] = useState('');
   const [passwordError, setPasswordError] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const user = data.get('user') as string;
     const password = data.get('password') as string;
-
+    
     if (user !== validUser) {
       setUserError('Invalid User');
     } else {
@@ -53,7 +41,7 @@ export default function SignIn() {
 
     if (user === validUser && password === validPassword) {
       alert('Login bem-sucedido');
-      // Redirecionar ou exibir conteúdo protegido
+      navigate('/dashboard');
     }
   };
 

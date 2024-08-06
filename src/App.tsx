@@ -1,11 +1,21 @@
 import React from 'react';
-import SignIn from './Pages/Login/index';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import SignIn from './Pages/Login';
+import Dashboard from './Pages/Dashboard'; // Adicione uma página Dashboard como exemplo
 
 function App() {
   return (
-    <div className="App">
-      <SignIn />
-    </div>
+    <Router>
+      <Helmet>
+        <title>SpeedSef</title>
+        <link rel="icon" type="image/png" href={require('./assets/logo.png')} />
+      </Helmet>
+      <Routes>
+        <Route path="/" element={<SignIn />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </Router>
   );
 }
 
