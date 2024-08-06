@@ -1,13 +1,10 @@
 import React from 'react';
+import SignIn from './Pages/Login/index';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Hello, SpeedSef!
-        </p>
-      </header>
+      <SignIn />
     </div>
   );
 }
