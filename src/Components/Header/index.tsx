@@ -7,10 +7,10 @@ const Header = () => {
       <div className="flex flex-col items-center py-4">
         <img src={Marca} alt="Logo" className="h-48 w-48 rounded-full mb-4" />
         <nav className="flex flex-col items-center space-y-2 w-full">
-          <a href="#" className="no-underline text-white text-lg py-2 px-4 w-full text-center bg-gray-800 rounded hover:bg-yellow-500 transition duration-300 ease-in-out">Home</a>
-          <a href="#" className="no-underline text-white text-lg py-2 px-4 w-full text-center bg-gray-800 rounded hover:bg-yellow-500 transition duration-300 ease-in-out">Restaurant</a>
-          <a href="#" className="no-underline text-white text-lg py-2 px-4 w-full text-center bg-gray-800 rounded hover:bg-yellow-500 transition duration-300 ease-in-out">Accommodations</a>
-          
+            <a href="/clientes" className="no-underline text-white text-lg py-2 px-4 w-full text-center bg-gray-800 rounded hover:bg-yellow-500 transition duration-300 ease-in-out">Clientes</a>
+            <a href="/documentos" className="no-underline text-white text-lg py-2 px-4 w-full text-center bg-gray-800 rounded hover:bg-yellow-500 transition duration-300 ease-in-out">Documentos</a>
+            <a href="/relatorios" className="no-underline text-white text-lg py-2 px-4 w-full text-center bg-gray-800 rounded hover:bg-yellow-500 transition duration-300 ease-in-out">Relatórios</a>
+            <a href="/lancar-nota" className="no-underline text-white text-lg py-2 px-4 w-full text-center bg-gray-800 rounded hover:bg-yellow-500 transition duration-300 ease-in-out">Lançar Nota</a>
         </nav>
       </div>
     </div>
