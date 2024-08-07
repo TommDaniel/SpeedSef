@@ -98,7 +98,7 @@ export default function SignIn() {
             </Button>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
+        <Copyright color='black' sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
   );
