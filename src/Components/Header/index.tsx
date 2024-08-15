@@ -5,9 +5,13 @@ import axios from 'axios';
 const Header = () => {
   const handleSefazClick = async () => {
     try {
-      const response = await axios.post('/netlify/functions/SefazEntry');
-      console.log(response.data.message);
-      alert(response.data.message);
+      const data = {
+        cpf: '03108733044',
+        datanasc: '03092002',
+        cnpj: '47529662000117',
+        nomemae: 'Gislaine Cristina Dombrovski',
+      };
+      const response = await axios.post('http://127.0.0.1:5000/SefazEntry', data);
     } catch (error) {
       console.error("Erro ao criar a nota:", error);
       alert("Erro ao criar a nota. Verifique os logs.");
@@ -22,7 +26,7 @@ const Header = () => {
             <a href="/documentos" className="no-underline text-white text-lg py-2 px-4 w-full text-center bg-gray-800 rounded hover:bg-yellow-500 transition duration-300 ease-in-out">Documentos</a>
             <a href="/relatorios" className="no-underline text-white text-lg py-2 px-4 w-full text-center bg-gray-800 rounded hover:bg-yellow-500 transition duration-300 ease-in-out">Relatórios</a>
             <a href="/lancar-nota" className="no-underline text-white text-lg py-2 px-4 w-full text-center bg-gray-800 rounded hover:bg-yellow-500 transition duration-300 ease-in-out">Lançar Nota</a>
-            <button onClick={handleSefazClick} className="no-underline text-white text-lg py-2 px-4 w-full text-center bg-gray-800 rounded hover:bg-yellow-500 transition duration-300 ease-in-out">Abrir Sefaz</button>
+            <a href="/dashboard" onClick={handleSefazClick} className="no-underline text-white text-lg py-2 px-4 w-full text-center bg-gray-800 rounded hover:bg-yellow-500 transition duration-300 ease-in-out">Abrir Sefaz</a>
         </nav>
       </div>
     </div>
